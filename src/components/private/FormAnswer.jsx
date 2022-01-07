@@ -19,7 +19,6 @@ const FormAnswer = ({idQuestion}) => {
 
         <section>
             <form ref={form} onSubmit={submitForm} onChange={updateFormData}>
-                <h1>Respuestas</h1>
                 <label>Añade una respuesta.</label>
                 <input required name="answer" type="text" placeholder='Ingresa acá una respuesta'></input>
                 <input hidden name="userId" type="text" value={state.user.uid} ></input>
