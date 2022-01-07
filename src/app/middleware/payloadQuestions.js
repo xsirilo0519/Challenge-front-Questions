@@ -38,7 +38,7 @@ export const loadById=(id)=>(dispatch)=>{
 }
 
 
-export const postQuestion=(question)=>{
+export const postQuestion=(question,navigate)=>{
 
     const options = {
         method: 'POST',
@@ -48,14 +48,14 @@ export const postQuestion=(question)=>{
       };
       console.log(question);
       axios.request(options).then(function (response) {
-        console.log(response.data);
+        navigate("/private/QuestionsPage")
       }).catch(function (error) {
         console.error(error);
       });
 }
 
 
-export const postAnswer=(answer)=>{
+export const postAnswer=(answer)=>(dispatch)=>{
 
     const options = {
         method: 'POST',
@@ -65,7 +65,7 @@ export const postAnswer=(answer)=>{
       };
       
       axios.request(options).then(function (response) {
-        console.log(response.data);
+        dispatch(oneQuestionLoadSucces(response.data))
       }).catch(function (error) {
         console.error(error);
       });
@@ -74,11 +74,8 @@ export const postAnswer=(answer)=>{
 
 export const deleteQuestion=(id)=>(dispatch)=>{
     dispatch(myQuestionsLoading())
-    console.log(id);
     const options = {method: 'DELETE', url: `http://localhost:8080/delete/${id}`};
-
         axios.request(options).then(function (response) {
-          console.log(id);
             dispatch(myQuestionsDelete(id))
         }).catch(function (error) {
           console.log(error);

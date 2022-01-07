@@ -1,4 +1,4 @@
-/* import React from 'react';
+import React from 'react';
 import useFormData from '../../hooks/UseFormData'
 import { postQuestion } from '../../app/middleware/payloadQuestions';
 
@@ -27,4 +27,4 @@ const FormUsuario = () => {
 
 }
 
-export default FormUsuario; */
+export default FormUsuario; 

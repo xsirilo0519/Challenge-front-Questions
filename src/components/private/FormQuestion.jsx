@@ -1,17 +1,18 @@
 import useFormData from '../../hooks/UseFormData'
 import { postQuestion } from '../../app/middleware/payloadQuestions';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 const FormQuestion = () => {
-
+    const navigate=useNavigate();
     const state =useSelector(state=>state.auth)
 
     const{form, formData, updateFormData} = useFormData();
 
     const submitForm = (e) => {
         e.preventDefault();
-        postQuestion(formData)
+        postQuestion(formData,navigate)
       }
 
     return(

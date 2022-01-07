@@ -26,13 +26,11 @@ const MyQuestions = () => {
 
     return (
         <section>
-        {myQuestions[0]===null&&myQuestions?myQuestions.map((question)=>{
+        {myQuestions?
+        (myQuestions.lenght?myQuestions.map((question)=>{
             return(
                 <QuestionsPrivate key={question.id} question={question} deleteQuestion={deleteQuestions}/>
-                )
-        }):<p>No hay lista</p>}
-        
-        
+                )}):<p>No ha creado preguntas</p>):null}
         
         {isLoading && <h1> Cargando preguntas </h1>}
             {error && <h1> Error {error} </h1>}
