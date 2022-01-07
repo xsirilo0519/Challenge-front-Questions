@@ -8,7 +8,7 @@ const Footer = () => {
             Esta aplicación permite crear preguntas y respuestas, fue diseñada para el challenge de sofka U
             <br/>
             Con css predeterminado para este ejercicio
-            <p>Desarrollado por Sebastian López Trujillo</p>    
+            <p> &copy; 2022 Sebastian López Trujillo</p>    
     </div>
     )
 }

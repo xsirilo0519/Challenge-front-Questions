@@ -1,6 +1,6 @@
 import { useDispatch,useSelector } from "react-redux"
 import { useEffect } from "react"
-import { getUserQuestion } from "../../app/middleware/payloadQuestions"
+import { getUserQuestion,deleteQuestion } from "../../app/middleware/payloadQuestions"
 import QuestionsPrivate from "../../components/private/QuestionsPrivate"
 
 
@@ -18,15 +18,19 @@ const MyQuestions = () => {
         dispatch(getUserQuestion(user.uid));
     },[user])
 
+    const deleteQuestions=(id)=>{
+        dispatch(deleteQuestion(id));
+    }
+
     
 
     return (
         <section>
-        {myQuestions && myQuestions.map((question)=>{
+        {myQuestions[0]===null&&myQuestions?myQuestions.map((question)=>{
             return(
-                <QuestionsPrivate key={question.id} question={question}/>
+                <QuestionsPrivate key={question.id} question={question} deleteQuestion={deleteQuestions}/>
                 )
-        })}
+        }):<p>No hay lista</p>}
         
         
         

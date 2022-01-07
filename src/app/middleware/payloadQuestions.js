@@ -1,6 +1,6 @@
 import { questionsLoading ,questionsLoadSucces,questionsLoadError } from "../../actions/QuestionsActions";
 import {oneQuestionLoadSucces , oneQuestionLoadError} from "../../actions/OneQuestionActions";
-import { myQuestionsLoadSucces, myQuestionsLoading,myQuestionsLoadError } from "../../actions/MyQuestionsActions";
+import { myQuestionsLoadSucces, myQuestionsLoading,myQuestionsLoadError, myQuestionsDelete } from "../../actions/MyQuestionsActions";
 import axios from "axios";
 
 export const loadAllQuestion=()=>(dispatch)=>{
@@ -72,13 +72,16 @@ export const postAnswer=(answer)=>{
 }
 
 
-export const deleteQuestion=(id)=>{
+export const deleteQuestion=(id)=>(dispatch)=>{
+    dispatch(myQuestionsLoading())
+    console.log(id);
     const options = {method: 'DELETE', url: `http://localhost:8080/delete/${id}`};
 
         axios.request(options).then(function (response) {
-        console.log(response.data);
+          console.log(id);
+            dispatch(myQuestionsDelete(id))
         }).catch(function (error) {
-        console.error(error);
+          console.log(error);
         });
 }
 
