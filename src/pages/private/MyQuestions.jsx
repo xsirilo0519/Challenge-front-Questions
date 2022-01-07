@@ -20,7 +20,7 @@ const MyQuestions = () => {
     },[])
 
     return (
-        <>
+        <section>
         {myQuestions && myQuestions.map((question)=>{
             return(
                 <QuestionsPrivate key={question.id} question={question}/>
@@ -29,10 +29,10 @@ const MyQuestions = () => {
         
         
         
-        
+        {isLoading && <h1> Cargando preguntas </h1>}
             {error && <h1> Error {error} </h1>}
 
-        </>
+        </section>
     )
 }
 

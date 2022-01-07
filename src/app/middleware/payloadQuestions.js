@@ -46,7 +46,7 @@ export const postQuestion=(question)=>{
         headers: {'Content-Type': 'application/json'},
         data: question
       };
-      
+      console.log(question);
       axios.request(options).then(function (response) {
         console.log(response.data);
       }).catch(function (error) {

@@ -2,11 +2,11 @@
 const ViewAnswer = ({answer}) => {  
 
     return(
-        <div className='question'>
+        <section className='question'>
 
             <p>{answer.answer}  - <small>{answer.position}</small></p>
         
-        </div>
+        </section>
     )
 }
 

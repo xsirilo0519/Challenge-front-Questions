@@ -17,8 +17,7 @@ const OneQuestionPagePublic = () => {
     },[])
   
     return (    
-        <>
-        <h1>public</h1>
+        <section>
         {oneQuestion&&(
         <>
         <OneQuestionPublic question={oneQuestion}/>
@@ -28,7 +27,7 @@ const OneQuestionPagePublic = () => {
                 )})}
         </>
         )}
-        </>
+        </section>
     )
 }
 

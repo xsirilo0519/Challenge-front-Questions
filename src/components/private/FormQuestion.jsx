@@ -15,7 +15,7 @@ const FormQuestion = () => {
       }
 
     return(
-        <div>
+        <section>
             <h1>Este es un fomulario de question.</h1>
 
             <form ref={form} onSubmit={submitForm} onChange={updateFormData}>
@@ -25,43 +25,24 @@ const FormQuestion = () => {
                 <label className=" font-medium">Type</label>
                 <select required className="" name="type" defaultValue="Type">
                   <option disabled type="String" value="">Type</option>
-                  <option type="String">ARTES</option>
-                  <option type="String">CIENCIAS_AGRARIAS</option>
-                  <option type="String">CIENCIAS_ECONOMICAS</option>
-                  <option type="String">CIENCIAS_EXACTAS_NATURALES</option>
-                  <option type="String">CIENCIAS_FARMACEUTICAS_ALIMENTARIAS</option>
-                  <option type="String">CIENCIAS_SOCIALES_HUMANAS</option>
-                  <option type="String">COMUNICACIONES</option>
-                  <option type="String">DERECHO_CIENCIAS_POLITICAS</option>
-                  <option type="String">EDUCACION</option>
-                  <option type="String">ENFERMERIA</option>
-                  <option type="String">INGENIERIA</option>
-                  <option type="String">MEDICINA</option>
-                  <option type="String">ODONTOLOGIA</option>
-                  <option type="String">SALUD_PUBLICA</option>
+                  <option type="String" value="OPEN">OPEN (LONG OPEN BOX)</option>
+                        <option type="String" value="OPINION">OPINION (SHORT OPEN BOX)</option>
+                        <option type="String" value="WITH RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
+                        <option type="String" value="WITH EVIDENCE">WITH EVIDENCE (OPEN BOX WITH VIDEO)</option>
                 </select>
                 <label className=" font-medium">Category</label>
                 <select required name="category"  defaultValue="Category"className="">
                   <option disabled type="String"  value="">Category</option>
-                  <option type="String">ARTES</option>
-                  <option type="String">CIENCIAS_AGRARIAS</option>
-                  <option type="String">CIENCIAS_ECONOMICAS</option>
-                  <option type="String">CIENCIAS_EXACTAS_NATURALES</option>
-                  <option type="String">CIENCIAS_FARMACEUTICAS_ALIMENTARIAS</option>
-                  <option type="String">CIENCIAS_SOCIALES_HUMANAS</option>
-                  <option type="String">COMUNICACIONES</option>
-                  <option type="String">DERECHO_CIENCIAS_POLITICAS</option>
-                  <option type="String">EDUCACION</option>
-                  <option type="String">ENFERMERIA</option>
-                  <option type="String">INGENIERIA</option>
-                  <option type="String">MEDICINA</option>
-                  <option type="String">ODONTOLOGIA</option>
-                  <option type="String">SALUD_PUBLICA</option>
+                  <option value="TECHNOLOGY AND COMPUTER">TECHNOLOGY AND COMPUTER</option>
+                        <option value="SCIENCES">SCIENCES</option>
+                        <option value="SOFTWARE DEVELOPMENT">SOFTWARE DEVELOPMENT</option>
+                        <option value="SOCIAL SCIENCES">SOCIAL SCIENCES</option>
+                        <option value="LANGUAGE">LANGUAGE</option>
                 </select>
-                <button type="submit">Enviar</button>
+                <button className="button" type="submit">Enviar</button>
             </form>
 
-        </div>
+        </section>
     )
 
 }

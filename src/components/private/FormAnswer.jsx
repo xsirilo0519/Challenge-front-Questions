@@ -15,16 +15,16 @@ const FormAnswer = ({idQuestion}) => {
 
     return(
 
-        <div>
+        <section>
             <form ref={form} onSubmit={submitForm} onChange={updateFormData}>
                 <h1>Respuestas</h1>
                 <label>Añade una respuesta.</label>
                 <input required name="answer" type="text" placeholder='Ingresa acá una respuesta'></input>
                 <input hidden name="userId" type="text" value={state.user.uid} ></input>
                 <input hidden name="questionId" type="text" value={idQuestion} ></input>
-                <button type="submit">Enviar Respuesta</button>
+                <button className="button" type="submit">Enviar Respuesta</button>
             </form>
-        </div>
+        </section>
 
     )
 

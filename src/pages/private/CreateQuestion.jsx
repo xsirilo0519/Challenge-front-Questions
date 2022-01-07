@@ -3,9 +3,9 @@ import FormQuestion from '../../components/private/FormQuestion'
 
 const CreateQuestion = () => {
     return (
-        <div>
+        <section>
             <FormQuestion/>
-        </div>
+        </section>
     )
 }
 

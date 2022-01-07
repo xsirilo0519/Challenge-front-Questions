@@ -10,7 +10,8 @@ const OneQuestionReducer = (state=initialState, {type,payload})=>{
         case actionsTypesOneQuestion.LOAD_SUCCESS_QUESTION:
             return {
                 ...state,
-                oneQuestion:payload
+                oneQuestion:payload,
+                error:null
                 }
         case actionsTypesOneQuestion.LOAD_FAILURE_QUESTION:
             return {

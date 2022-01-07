@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const QuestionsPrivate = ({question}) => {  
 
     return(
-        <div className='question'>
+        <section className='question'>
             <p>{question.category}  - <small>{question.type}</small></p>
             
             {/* {onDelete && (
@@ -13,7 +13,7 @@ const QuestionsPrivate = ({question}) => {
                 View Question
             </Link>
         
-        </div>
+        </section>
     )
 }
 

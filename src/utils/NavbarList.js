@@ -4,17 +4,25 @@ export const publicNavbar=[
         url:'/',
     },
     {
-        titulo: 'Login',
-        url:'/Login',
+        titulo: 'Questions',
+        url:'QuestionsPage',
     },
 ];
 
 export const privateNavbar=[
     {
         titulo: 'Home',
-        url:'/',    },
+        url:'Home',    },
     {
         titulo: 'Questions',
-        url:'/questionpage',
+        url:'QuestionsPage',
+    },
+    {
+        titulo: 'New',
+        url:'CreateQuestion',
+    },
+    {
+        titulo: 'list',
+        url:'MyQuestions',
     }
 ];

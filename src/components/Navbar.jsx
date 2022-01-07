@@ -2,17 +2,16 @@ import {Link} from "react-router-dom"
 
 const Navbar = ({elements}) => {
     return (
-        <div>
-            👽👾👉 Navbar 👈👾👽
-        <div style={{display:"flex",flexDirection:"row",justifyContent:"center"}}>
+        <nav>
+        <section >
            
            {
                elements.map((element,index)=>{
-                   return (<Link key={index} to={"/private/QuestionsPage"}>{element.titulo}</Link>)
+                   return (<Link key={index} to={element.url}>{element.titulo}</Link>)
                })
            }
-        </div>
-        </div>
+        </section>
+        </nav>
     )
 }
 

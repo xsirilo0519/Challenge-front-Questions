@@ -19,8 +19,7 @@ const OneQuestionPagePrivate = () => {
     console.log("aparece ", oneQuestion);
 
     return (
-        <>  
-            <h1>private</h1>
+        <section>  
             {oneQuestion && 
             <>
                  <OneQuestionPrivate oneQuestion={oneQuestion}/>
@@ -33,7 +32,7 @@ const OneQuestionPagePrivate = () => {
             </>     
             }
             
-        </>
+        </section>
     )
 }
 

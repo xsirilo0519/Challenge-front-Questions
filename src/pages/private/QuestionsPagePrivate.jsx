@@ -14,16 +14,17 @@ const QuestionsPagePrivate = () => {
   
     
     return (
-        <>
-            <h1>private</h1>
-            {error&& <h1>{error}</h1>}
+        <section>
+                    
+        {isLoading && <h1> Cargando preguntas </h1>}
+            {error && <h1> Error {error} </h1>}
             {questions && questions.map((question)=>{
                 return(
                     <QuestionPrivate key={question.id} question={question}/>
                 )
                
             })}
-        </>
+        </section>
     )
 }
 
