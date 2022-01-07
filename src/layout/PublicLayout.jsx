@@ -9,14 +9,12 @@ import {  useSelector  } from "react-redux"
 
 const PublicLayout = () => {
     const state = useSelector(state => state.auth)
-    const [user,setUser]=useState([])
 
     const navigate=useNavigate()
 
     useEffect(()=>{  
-        console.log(state);
       app.auth().onAuthStateChanged((users)=>{
-      users?navigate("/private/home"):setUser(users)
+      users&&navigate("/private/home")
   })},[])
 
 
@@ -24,7 +22,8 @@ const PublicLayout = () => {
 
     return (
         <>
-    {user?null:
+{state?.user?
+    null:
     <>
             <Navbar elements={publicNavbar}/>
             <Outlet/>

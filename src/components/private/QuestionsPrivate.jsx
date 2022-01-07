@@ -4,7 +4,9 @@ const QuestionsPrivate = ({question}) => {
 
     return(
         <section className='question'>
-            <p>{question.category}  - <small>{question.type}</small></p>
+            <div className="card">
+            <h4>{question.question}</h4>
+            <h6>{question.category}  - <small>{question.type}</small></h6>
             
             {/* {onDelete && (
                 <button className="button right" onClick={() => onDelete(question.id)}>DELETE</button>
@@ -12,7 +14,7 @@ const QuestionsPrivate = ({question}) => {
             <Link to={`/private/question/${question.id}`} className="button">
                 View Question
             </Link>
-        
+            </div>
         </section>
     )
 }

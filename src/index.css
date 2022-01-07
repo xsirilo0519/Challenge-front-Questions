@@ -15,6 +15,15 @@ nav {
   background: #111;
 }
 
+nav img{
+  width: 50px;
+  height: 50px;
+}
+
+nav h1{
+  color: aliceblue;
+}
+
 nav section {
   width: 100%;
 }
@@ -123,3 +132,8 @@ textarea {
 }
 
 
+.card{
+background-color: #FFB6B9;
+border-radius: 10px;
+padding: 5px;
+}

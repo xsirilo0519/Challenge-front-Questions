@@ -16,8 +16,9 @@ const MyQuestions = () => {
     
     useEffect(() =>{
         dispatch(getUserQuestion(user.uid));
-       console.log(myQuestions)
-    },[])
+    },[user])
+
+    
 
     return (
         <section>

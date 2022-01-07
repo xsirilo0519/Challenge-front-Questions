@@ -28,6 +28,7 @@ function App() {
 
   useEffect(()=>{
       app.auth().onAuthStateChanged((user)=>{
+        console.log(user);
         if(user){
           dispatch(loggedAction(user.multiFactor.user.email , 
               user.multiFactor.user.displayName,

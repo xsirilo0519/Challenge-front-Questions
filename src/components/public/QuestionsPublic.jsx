@@ -4,6 +4,7 @@ const QuestionsPublic = ({question}) => {
 
     return(
         <div className='question'>
+            <h2>{question.question}</h2>
             <p>{question.category}  - <small>{question.type}</small></p>
             
             {/* {onDelete && (

@@ -3,20 +3,21 @@ import Navbar from "../components/Navbar"
 import {privateNavbar} from "../utils/NavbarList"
 import { app } from "../service/firebase"
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useSelector } from 'react-redux';
+
 
 
 
 const PrivateLayout = () => {
 
-    const [user,setUser]=useState()
+    const state = useSelector(state => state.auth)
     const navigate=useNavigate()
 
     useEffect(()=>{
         app.auth().onAuthStateChanged((users)=>{
-            if(users){
-                users?setUser(users):navigate("/")
-
+            if(!users){
+                navigate("/")
         }})
       },[])
 
@@ -24,8 +25,8 @@ const PrivateLayout = () => {
 
     return (
         <>
-        {user
-        ?(<div>
+    {state?.user?
+        (<div>
             <Navbar elements={privateNavbar}/>
             <Outlet/>
         </div>)
