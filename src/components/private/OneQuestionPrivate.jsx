@@ -8,9 +8,7 @@ const OneQuestionPrivate = ({oneQuestion}) => {
             <h4>{oneQuestion.question}</h4>
             <h6>{oneQuestion.category}  - <small>{oneQuestion.type}</small></h6>
             
-            {/* {onDelete && (
-                <button className="button right" onClick={() => onDelete(question.id)}>DELETE</button>
-            )} */}
+        
         </div>
         </section>
     )

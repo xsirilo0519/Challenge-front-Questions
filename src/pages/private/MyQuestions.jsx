@@ -27,7 +27,7 @@ const MyQuestions = () => {
     return (
         <section>
         {myQuestions?
-        (myQuestions.lenght?myQuestions.map((question)=>{
+        (myQuestions.length>0?myQuestions.map((question)=>{
             return(
                 <QuestionsPrivate key={question.id} question={question} deleteQuestion={deleteQuestions}/>
                 )}):<p>No ha creado preguntas</p>):null}

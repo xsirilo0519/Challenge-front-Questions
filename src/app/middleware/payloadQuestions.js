@@ -1,5 +1,5 @@
 import { questionsLoading ,questionsLoadSucces,questionsLoadError } from "../../actions/QuestionsActions";
-import {oneQuestionLoadSucces , oneQuestionLoadError} from "../../actions/OneQuestionActions";
+import {oneQuestionLoadSucces , oneQuestionLoadError, oneQuestionsLoading,oneQuestionsDeleteAnswer} from "../../actions/OneQuestionActions";
 import { myQuestionsLoadSucces, myQuestionsLoading,myQuestionsLoadError, myQuestionsDelete } from "../../actions/MyQuestionsActions";
 import axios from "axios";
 
@@ -23,6 +23,7 @@ export const loadAllQuestion=()=>(dispatch)=>{
 
 export const loadById=(id)=>(dispatch)=>{
 
+  dispatch(oneQuestionsLoading())
 
     const options = {
         method: 'GET',
@@ -46,9 +47,8 @@ export const postQuestion=(question,navigate)=>{
         headers: {'Content-Type': 'application/json'},
         data: question
       };
-      console.log(question);
       axios.request(options).then(function (response) {
-        navigate("/private/QuestionsPage")
+        navigate("/private/MyQuestions")
       }).catch(function (error) {
         console.error(error);
       });
@@ -65,9 +65,20 @@ export const postAnswer=(answer)=>(dispatch)=>{
       };
       
       axios.request(options).then(function (response) {
+        console.log(response);
         dispatch(oneQuestionLoadSucces(response.data))
       }).catch(function (error) {
         console.error(error);
+      });
+}
+
+export const deleteAnswer=(id)=>(dispatch)=>{
+  dispatch(oneQuestionsLoading())
+  const options = {method: 'DELETE', url: `http://localhost:8080/deleteAnswer/${id}`};
+      axios.request(options).then(function (response) {
+          dispatch(oneQuestionsDeleteAnswer(id))
+      }).catch(function (error) {
+        dispatch(oneQuestionLoadError())
       });
 }
 
