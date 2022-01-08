@@ -12,6 +12,7 @@ const FormQuestion = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
+        console.log(state);
         postQuestion(formData,navigate)
       }
 

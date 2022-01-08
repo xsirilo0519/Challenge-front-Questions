@@ -125,12 +125,12 @@ export const postUsuario = (user,navigate)=>(dispatch) => {
     console.log("response",response);
 
     dispatch(loginAction(
-      response.email,
-      response.nombre,
-      response.uid,
-      response.path,
-      response.id,
-      response.apellido)
+      response.data.email,
+      response.data.nombre,
+      response.data.uid,
+      response.data.path,
+      response.data.id,
+      response.data.apellido)
     )
     navigate("/private/home")
   }).catch(function (error) {
@@ -145,15 +145,16 @@ export const getUsuario = (UID) => (dispatch) => {
     headers: { "Content-Type": "application/json" },
   };
   axios
-    .request(options).then(response=>
+    .request(options).then(response=>{
       dispatch(loginAction(
-        response.email,
-        response.nombre,
-        response.uid,
-        response.path,
-        response.id,
-        response.apellido)
+        response.data.email,
+        response.data.nombre,
+        response.data.uid,
+        response.data.path,
+        response.data.id,
+        response.data.apellido)
       )
+    }
 
     )
     .catch(function (error) {

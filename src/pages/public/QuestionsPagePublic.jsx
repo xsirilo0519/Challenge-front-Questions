@@ -15,15 +15,15 @@ const QuestionsPagePublic = () => {
     
     return (
         <section>
-                    
-        {isLoading && <h1> Cargando preguntas </h1>}
-            {error && <h1> Error {error} </h1>}
-            {questions && questions.map((question)=>{
+             {questions?
+            (questions.length>0? questions.map((question)=>{
                 return(
                     <QuestionPublic key={question.id} question={question}/>
                 )
                
-            })}
+            }):<p>No hay preguntas</p>):null}
+                    {isLoading && <h1> Cargando preguntas </h1>}
+            {error && <h1> Error {error} </h1>}
         </section>
     )
 }
