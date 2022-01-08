@@ -15,10 +15,12 @@ import QuestionsPagePublic from './pages/public/QuestionsPagePublic';
 import CreateQuestion from './pages/private/CreateQuestion';
 import MyQuestions from './pages/private/MyQuestions';
 import FormUsuario from './components/private/FormUsuario'
+import Profile from './components/private/FormProfile'
 import { app } from "./service/firebase"
 import { useDispatch } from "react-redux"
 import {useEffect} from "react";
 import { getUsuario } from './app/middleware/payloadQuestions';
+
 
 
 
@@ -52,6 +54,8 @@ function App() {
             <Route path="Question/:id" element={<OneQuestionPagePrivate/>}/>
             <Route path="CreateQuestion" element={<CreateQuestion/>}/>
             <Route path="MyQuestions" element={<MyQuestions/>}/>
+            <Route path="Profile" element={<Profile/>}/>
+
         </Route>
       </Routes>
     </BrowserRouter>

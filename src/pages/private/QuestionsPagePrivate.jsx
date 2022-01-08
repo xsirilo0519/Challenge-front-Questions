@@ -22,7 +22,7 @@ const QuestionsPagePrivate = () => {
                     <QuestionPrivate key={question.id} question={question}/>
                 )
                
-            }):<p>No ha creado preguntas</p>):null}
+            }):<p>No hay preguntas</p>):null}
                     {isLoading && <h1> Cargando preguntas </h1>}
             {error && <h1> Error {error} </h1>}
         </section>

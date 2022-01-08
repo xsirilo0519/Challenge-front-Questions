@@ -1,7 +1,7 @@
 import { questionsLoading ,questionsLoadSucces,questionsLoadError } from "../../actions/QuestionsActions";
 import {oneQuestionLoadSucces , oneQuestionLoadError, oneQuestionsLoading,oneQuestionsDeleteAnswer} from "../../actions/OneQuestionActions";
 import { myQuestionsLoadSucces, myQuestionsLoading,myQuestionsLoadError, myQuestionsDelete } from "../../actions/MyQuestionsActions";
-import { loginAction } from "../../actions/AuthorActions";
+import { loggedAction, loginAction } from "../../actions/AuthorActions";
 import axios from "axios";
 
 export const loadAllQuestion=()=>(dispatch)=>{
@@ -144,8 +144,7 @@ export const getUsuario = (UID) => (dispatch) => {
     url: `http://localhost:8080/getUsuario/${UID}`,
     headers: { "Content-Type": "application/json" },
   };
-  axios
-    .request(options).then(response=>{
+  axios.request(options).then(response=>{
       dispatch(loginAction(
         response.data.email,
         response.data.nombre,
@@ -154,6 +153,31 @@ export const getUsuario = (UID) => (dispatch) => {
         response.data.id,
         response.data.apellido)
       )
+    }
+
+    )
+    .catch(function (error) {
+     console.log("error");
+    });
+};
+
+export const PutUsuario = (user,navigate) => (dispatch) => {
+  const options = {
+    method: "PUT",
+    url: `http://localhost:8080/actualizarUsuario`,
+    headers: { "Content-Type": "application/json" },
+    data: user,
+  };
+  axios.request(options).then(response=>{
+      dispatch(loggedAction(
+        response.data.email,
+        response.data.nombre,
+        response.data.uid,
+        response.data.path,
+        response.data.id,
+        response.data.apellido)
+      )
+      navigate("/private/home")
     }
 
     )
