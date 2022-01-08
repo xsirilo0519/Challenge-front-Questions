@@ -7,6 +7,10 @@ export const publicNavbar=[
         titulo: 'Questions',
         url:'QuestionsPage',
     },
+    {
+        titulo: 'Register',
+        url:'RegisterPage',
+    },
 ];
 
 export const privateNavbar=[
@@ -24,5 +28,9 @@ export const privateNavbar=[
     {
         titulo: 'list',
         url:'MyQuestions',
+    },
+    {
+        titulo: 'Profile',
+        url:'Profile',
     }
 ];

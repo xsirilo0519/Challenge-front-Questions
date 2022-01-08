@@ -21,13 +21,14 @@ const FormQuestion = () => {
             <form ref={form} onSubmit={submitForm} onChange={updateFormData}>
                 <label>Añadir nueva pregunta</label>
                 <input required name="question" type="text" placeholder='Ingresa una pregunta acá'></input>
-                <input  required name="userId" hidden type="text" value={state.user.uid} placeholder='Ingresa una pregunta acá'></input>
+                <input  required name="userId" hidden type="text" defaultValue={state.user.uid} placeholder='Ingresa una pregunta acá'></input>
+                <input  required name="email" hidden type="text" defaultValue={state.user.email} placeholder='Ingresa una pregunta acá'></input>
                 <label className=" font-medium">Type</label>
                 <select required className="" name="type" defaultValue="OPEN">
-                  <option disabled type="String" value="" aria-readonly>Type</option>
+                  <option disabled type="String" defaultValue="" aria-readonly>Type</option>
                   <option type="String" value="OPEN">OPEN (LONG OPEN BOX)</option>
                         <option type="String" value="OPINION">OPINION (SHORT OPEN BOX)</option>
-                        <option type="String" value="WITH_RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
+                        <option type="String" vlaue="WITH_RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
                         <option type="String" value="WITH_EVIDENCE">WITH EVIDENCE (OPEN BOX WITH VIDEO)</option>
                 </select>
                 <label className=" font-medium">Category</label>

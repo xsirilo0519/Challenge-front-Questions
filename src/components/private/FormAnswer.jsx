@@ -21,8 +21,8 @@ const FormAnswer = ({idQuestion}) => {
             <form ref={form} onSubmit={submitForm} onChange={updateFormData}>
                 <label>Añade una respuesta.</label>
                 <input required name="answer" type="text" placeholder='Ingresa acá una respuesta'></input>
-                <input hidden name="userId" type="text" value={state.user.uid} ></input>
-                <input hidden name="questionId" type="text" value={idQuestion} ></input>
+                <input hidden name="userId" type="text" defaultValue={state.user.uid} ></input>
+                <input hidden name="questionId" type="text" defaultValue={idQuestion} ></input>
                 <button className="button" type="submit">Enviar Respuesta</button>
             </form>
         </section>

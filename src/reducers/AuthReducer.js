@@ -10,7 +10,7 @@ const reducerAuth = (state=initialState,{type,payload})=>{
             return {
                     ...state,
                     user : payload,         
-                }
+                }    
         case actionsTypesAuth.LOGGED:
             return {
                     ...state,
@@ -22,6 +22,7 @@ const reducerAuth = (state=initialState,{type,payload})=>{
                 ...state,
                     user : payload,
                 }
+     
 
         default: return state;
     }

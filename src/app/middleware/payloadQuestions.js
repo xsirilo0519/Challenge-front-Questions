@@ -1,6 +1,7 @@
 import { questionsLoading ,questionsLoadSucces,questionsLoadError } from "../../actions/QuestionsActions";
 import {oneQuestionLoadSucces , oneQuestionLoadError, oneQuestionsLoading,oneQuestionsDeleteAnswer} from "../../actions/OneQuestionActions";
 import { myQuestionsLoadSucces, myQuestionsLoading,myQuestionsLoadError, myQuestionsDelete } from "../../actions/MyQuestionsActions";
+import { loginAction } from "../../actions/AuthorActions";
 import axios from "axios";
 
 export const loadAllQuestion=()=>(dispatch)=>{
@@ -40,7 +41,7 @@ export const loadById=(id)=>(dispatch)=>{
 
 
 export const postQuestion=(question,navigate)=>{
-
+    console.log(question);
     const options = {
         method: 'POST',
         url: 'http://localhost:8080/create',
@@ -108,4 +109,55 @@ export const getUserQuestion=(userId)=>(dispatch)=>{
       }).catch(function (error) {
         dispatch(myQuestionsLoadError(error.message));
       });
-}
+  };
+
+export const postUsuario = (user,navigate)=>(dispatch) => {
+  console.log("userpost",user);
+  const options = {
+    method: "POST",
+    url: "http://localhost:8080/createUsuario",
+    headers: { "Content-Type": "application/json" },
+    data: user,
+  };
+  
+  axios.request(options).then(function (response) {  
+    
+    console.log("response",response);
+
+    dispatch(loginAction(
+      response.email,
+      response.nombre,
+      response.uid,
+      response.path,
+      response.id,
+      response.apellido)
+    )
+    navigate("/private/home")
+  }).catch(function (error) {
+    console.log(error);
+  });
+};
+
+export const getUsuario = (UID) => (dispatch) => {
+  const options = {
+    method: "GET",
+    url: `http://localhost:8080/getUsuario/${UID}`,
+    headers: { "Content-Type": "application/json" },
+  };
+  axios
+    .request(options).then(response=>
+      dispatch(loginAction(
+        response.email,
+        response.nombre,
+        response.uid,
+        response.path,
+        response.id,
+        response.apellido)
+      )
+
+    )
+    .catch(function (error) {
+     console.log("error");
+    });
+};
+

@@ -1,28 +1,45 @@
-import React from 'react';
 import useFormData from '../../hooks/UseFormData'
-import { postQuestion } from '../../app/middleware/payloadQuestions';
+import { useDispatch } from 'react-redux';
+import {postUsuario} from '../../app/middleware/payloadQuestions'
+import { useNavigate } from 'react-router-dom';
+import { app } from "../../service/firebase"
+import { useState } from 'react';
 
 const FormUsuario = () => {
 
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
     const{form, formData, updateFormData} = useFormData();
+    const [error,setError]=useState("");
 
     const submitForm = (e) => {
         e.preventDefault();
-        console.log(formData)
-      }
+        app.auth().createUserWithEmailAndPassword(formData.email,formData.password)
+        .then( user =>{
+          const userInfo = {
+            email:user.user.multiFactor.user.email,
+            nombre:"",
+            uid:user.user.multiFactor.user.uid,
+            path:"NO_IMG",
+            apellido:""
+          }
+          dispatch(postUsuario(userInfo,navigate))
+          })
+          .catch(error=>setError(error.message))
+
+        }
+ 
 
     return(
-        <div>
-            <h1>Actualización de los datos personales</h1>
-
+        <section>
             <form ref={form} onSubmit={submitForm} onChange={updateFormData}>
-                <label>Datos Personales</label>
-                <input name="nombre" placeholder='Ingrese Nombre'></input>
-                <input name="apellido" placeholder='Ingrese Pellido'></input>
-                <input name="correo" placeholder='Ingrese Correo'></input>
-                <button type="submit">Actualizar</button>
+                <label>Registrar</label>
+                <input type="email" name="email" placeholder='Ingrese su email'></input>
+                <input type="password"name="password" placeholder='Ingrese la contraseña'></input>
+                <button className='button' type="submit">Registrar</button>
             </form>
-        </div>
+            {error?<span>{error}</span>:null}
+        </section>
     )
 
 }

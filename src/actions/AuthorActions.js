@@ -1,12 +1,11 @@
 import actionsTypesAuth from "./actionsTypes/ActionsTypesAuth"
 
-export const loginAction = (email,name,uid,photo) => {
+export const loginAction = (email,name,uid,photo,id,apellido) => {
     return{
         type: actionsTypesAuth.LOGIN,
-        payload: {email,name,uid,photo}
+        payload: {email,name,uid,photo,id,apellido}
     }
 }
-
 
 
 export const logoutAction =()=>{
@@ -16,9 +15,9 @@ export const logoutAction =()=>{
     }
 }
 
-export const loggedAction =(email,name,uid,photo)=>{
+export const loggedAction =(email,name,uid,photo,id,apellido)=>{
     return{
         type : actionsTypesAuth.LOGGED,
-        payload: {email,name,uid,photo}
+        payload: {email,name,uid,photo,id,apellido}
     }
 }

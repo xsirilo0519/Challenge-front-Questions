@@ -11,7 +11,7 @@ const ViewAnswer = ({answer,deleteAnswer}) => {
             <div className="card-answer">
             <p>{answer.answer}</p>
               <div>
-              {state.user.uid===answer.userId?(deleteAnswer && (
+              {state?.user?.uid===answer.userId?(deleteAnswer && (
                 <button className="button right" onClick={() => deleteAnswer(answer.id)}>DELETE</button>
             )):null} 
               </div>
