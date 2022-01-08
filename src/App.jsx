@@ -31,10 +31,9 @@ function App() {
   useEffect(()=>{
       app.auth().onAuthStateChanged((user)=>{
         if(user){
-          console.log("usuario");
           dispatch(getUsuario(user.multiFactor.user.uid))
           }
-  })},[])
+  })},[dispatch])
 
   return (
     <>

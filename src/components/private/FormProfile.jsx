@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const FormProfile = () => {
     const navigate=useNavigate();
     const dispatch = useDispatch();
-    const{form, formData, updateFormData} = useFormData();
+    const{form, updateFormData} = useFormData();
     const state =useSelector(state=>state.auth);
 
    

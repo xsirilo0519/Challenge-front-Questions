@@ -10,7 +10,7 @@ const QuestionsPagePublic = () => {
 
     useEffect(()=>{
       dispatch(loadAllQuestion())
-    },[])
+    },[dispatch])
   
     
     return (

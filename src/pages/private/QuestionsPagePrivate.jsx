@@ -1,16 +1,17 @@
 import {useEffect} from'react'
 import { useDispatch,useSelector } from "react-redux";
-import { loadAllQuestion } from '../../app/middleware/payloadQuestions';
+import { loadAllQuestionFavorite } from '../../app/middleware/payloadQuestions';
 import QuestionPrivate from '../../components/private/QuestionsPrivate';
 
 const QuestionsPagePrivate = () => {
     const dispatch = useDispatch()
     const {isLoading,questions,error}=useSelector(state=>state.question)
+    const state =useSelector(state=>state.auth)
 
 
     useEffect(()=>{
-      dispatch(loadAllQuestion())
-    },[])
+      dispatch(loadAllQuestionFavorite(state.user.uid))
+    },[dispatch])
   
     
     return (

@@ -21,6 +21,23 @@ export const loadAllQuestion=()=>(dispatch)=>{
     });
 }
 
+export const loadAllQuestionFavorite=(id)=>(dispatch)=>{
+  
+  dispatch(questionsLoading())
+
+  const options = {
+  method: 'GET',
+  url: `http://localhost:8080/getAllFavorite/${id}`,
+  headers: {'Content-Type': 'application/json'}
+  };
+
+  axios.request(options).then(function (response) {
+      dispatch(questionsLoadSucces(response.data))
+  }).catch(function (error) {
+      dispatch(questionsLoadError(error.message))
+  });
+}
+
 
 export const loadById=(id)=>(dispatch)=>{
 

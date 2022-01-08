@@ -26,7 +26,7 @@ const FormQuestion = () => {
                 <input  required name="email" hidden type="text" defaultValue={state.user.email} placeholder='Ingresa una pregunta acá'></input>
                 <label className=" font-medium">Type</label>
                 <select required className="" name="type" defaultValue="OPEN">
-                  <option disabled type="String" defaultValue="" aria-readonly>Type</option>
+                  <option disabled type="String" defaultValue="" >Type</option>
                   <option type="String" value="OPEN">OPEN (LONG OPEN BOX)</option>
                         <option type="String" value="OPINION">OPINION (SHORT OPEN BOX)</option>
                         <option type="String" vlaue="WITH_RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
@@ -34,7 +34,7 @@ const FormQuestion = () => {
                 </select>
                 <label className=" font-medium">Category</label>
                 <select required name="category"  defaultValue="TECHNOLOGY_AND_COMPUTER"className="">
-                  <option disabled type="String"  value="" aria-readonly>Category</option>
+                  <option disabled type="String"  value="" >Category</option>
                   <option value="TECHNOLOGY_AND_COMPUTER">TECHNOLOGY AND COMPUTER</option>
                         <option value="SCIENCES">SCIENCES</option>
                         <option value="SOFTWARE_DEVELOPMENT">SOFTWARE DEVELOPMENT</option>
