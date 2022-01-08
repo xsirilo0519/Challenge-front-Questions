@@ -155,4 +155,9 @@ justify-content: center;
 
 .favorite{
   width: 30px;
+  cursor: pointer;
+}
+
+.favorite:hover{
+  width: 35px;
 }

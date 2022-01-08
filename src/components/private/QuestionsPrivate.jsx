@@ -4,6 +4,10 @@ import No_Favorite from '../../imagen/starNo.png'
 
 const QuestionsPrivate = ({question,deleteQuestion}) => {  
 
+    const hola=()=>{
+        console.log("hi");
+    }
+
     return(
         <section className='question'>
             
@@ -12,7 +16,6 @@ const QuestionsPrivate = ({question,deleteQuestion}) => {
                 <div style={{margin:10}}>
             <h4>{question.question}</h4>
             <h6>{question.category}  - <small>{question.type}</small></h6>
-                {console.log(question)}
             </div>
             <Link to={`/private/question/${question.id}`} className="button">
                 View Question
@@ -21,8 +24,9 @@ const QuestionsPrivate = ({question,deleteQuestion}) => {
                 <button className="button right" onClick={() => deleteQuestion(question.id)}>DELETE</button>
             )} 
             </div>
-                        <div>{question?.favorite===true?<img className="favorite" src={favorite}/>:<img className="favorite" src={No_Favorite}/>}</div> 
-
+                    {!deleteQuestion&&
+                        <div style={{width:40}}>{question?.favorite?<img onClick={hola} className="favorite" src={favorite}/>:<img onClick={hola} className="favorite" src={No_Favorite}/>}</div> 
+                    }  
             </div>
             
   
