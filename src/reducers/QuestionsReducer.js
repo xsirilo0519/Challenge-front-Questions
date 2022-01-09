@@ -15,7 +15,7 @@ const QuestionsReducer = (state=initialState,{type,payload})=>{
             return {
                 ...state,
                 isLoading:true,
-                error:null
+                error:null,
                 }
         case actionsTypesQuestions.LOAD_SUCCESS:
             return {
@@ -31,6 +31,36 @@ const QuestionsReducer = (state=initialState,{type,payload})=>{
                 isLoading:false,
                 error:payload
                 }
+
+        case actionsTypesQuestions.DELETE_FAVORITE_SUCCESS:
+            const question=state.questions.filter(question=>question.favorite!==null).filter(questionNoNull=>questionNoNull.favorite.id===payload)
+            const questionModificada={...question[0],favorite:null}
+            return {
+                ...state,
+                isLoading:false,
+                error:null,
+                questions:state.questions.map(question=>{if(question.id===questionModificada.id){
+                    return questionModificada;
+                }
+                return question;
+            })
+                }
+        case actionsTypesQuestions.ADD_FAVORITE:
+            console.log(payload);
+            const questionAdd=state.questions.filter(question=>question.id===payload.questionid)
+            console.log(questionAdd);
+            const questionModificadaAdd={...questionAdd[0],favorite:payload}
+            console.log(questionModificadaAdd);
+            return {
+                ...state,
+                isLoading:false,
+                error:null,
+                questions:state.questions.map(question=>{if(question.id===questionModificadaAdd.id){
+                    return questionModificadaAdd;
+                }
+                return question;
+            })
+                }   
 
         default: return state;
     }

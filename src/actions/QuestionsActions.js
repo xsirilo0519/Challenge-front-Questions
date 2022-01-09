@@ -20,3 +20,18 @@ export const questionsLoadError=(error)=>{
         payload:error
     }
 }
+
+export const questionsAddFavorite=(data)=>{
+    return {
+        type:actionsTypesQuestions.ADD_FAVORITE,
+        payload:data
+    }
+}
+
+
+export const questionsDeleteFavorite=(id)=>{
+    return {
+        type:actionsTypesQuestions.DELETE_FAVORITE_SUCCESS,
+        payload:id
+    }
+}

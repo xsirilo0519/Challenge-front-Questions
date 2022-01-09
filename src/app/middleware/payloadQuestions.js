@@ -1,4 +1,4 @@
-import { questionsLoading ,questionsLoadSucces,questionsLoadError } from "../../actions/QuestionsActions";
+import { questionsLoading ,questionsLoadSucces,questionsLoadError, questionsDeleteFavorite, questionsAddFavorite } from "../../actions/QuestionsActions";
 import {oneQuestionLoadSucces , oneQuestionLoadError, oneQuestionsLoading,oneQuestionsDeleteAnswer} from "../../actions/OneQuestionActions";
 import { myQuestionsLoadSucces, myQuestionsLoading,myQuestionsLoadError, myQuestionsDelete } from "../../actions/MyQuestionsActions";
 import { loggedAction, loginAction } from "../../actions/AuthorActions";
@@ -204,8 +204,8 @@ export const PutUsuario = (user,navigate) => (dispatch) => {
 };
 
 
-export const postFavorite=(favorite)=>{
-  console.log(favorite);
+export const postFavorite=(favorite)=>(dispatch)=>{
+  dispatch(questionsLoading())
   const options = {
       method: 'POST',
       url: 'http://localhost:8080/createFavorite',
@@ -213,17 +213,17 @@ export const postFavorite=(favorite)=>{
       data: favorite
     };
     axios.request(options).then(function (response) {
-      console.log(response.data);
+      dispatch(questionsAddFavorite(response.data))
     }).catch(function (error) {
       console.error(error);
     });
 }
 
 export const deleteFavorite=(id)=>(dispatch)=>{
-  //dispatch(myQuestionsLoading())
+  dispatch(questionsLoading())
   const options = {method: 'DELETE', url: `http://localhost:8080/deleteFavorite/${id}`};
       axios.request(options).then(function (response) {
-          //dispatch(myQuestionsDelete(id))
+          dispatch(questionsDeleteFavorite(id))
       }).catch(function (error) {
         console.log(error);
       });

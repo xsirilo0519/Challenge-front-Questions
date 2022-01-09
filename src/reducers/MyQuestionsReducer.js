@@ -35,7 +35,8 @@ const myQuestionReducer = (state=initialState, {type,payload})=>{
                 ...state,
                 isLoading:false,
                 error:payload
-                }
+                } 
+            
 
         default: return state;
     }
