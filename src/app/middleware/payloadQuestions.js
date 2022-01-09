@@ -229,5 +229,21 @@ export const deleteFavorite=(id)=>(dispatch)=>{
       });
 }
 
+export const getFavoriteUserQuestion=(userId)=>(dispatch)=>{
+
+  dispatch(myQuestionsLoading())
+
+  const options = {
+      method: 'GET',
+      url: `http://localhost:8080/getFavorites/${userId}`,
+      headers: {'Content-Type': 'application/json'}
+    };
+    axios.request(options).then(function (response) {
+      dispatch(myQuestionsLoadSucces(response.data));
+    }).catch(function (error) {
+      dispatch(myQuestionsLoadError(error.message));
+    });
+};
+
 
 

@@ -7,7 +7,7 @@ const QuestionsPagePrivate = () => {
     const dispatch = useDispatch()
     const {isLoading,questions,error}=useSelector(state=>state.question)
     const state =useSelector(state=>state.auth)
-
+    const isFavorite=true;
 
     useEffect(()=>{
       dispatch(loadAllQuestionFavorite(state.user.uid))
@@ -20,7 +20,7 @@ const QuestionsPagePrivate = () => {
                     {questions?
             (questions.length>0? questions.map((question)=>{
                 return(
-                    <QuestionPrivate key={question.id} question={question}/>
+                    <QuestionPrivate key={question.id} question={question} isFavorite={isFavorite}/>
                 )
                
             }):<p>No hay preguntas</p>):null}

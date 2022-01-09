@@ -3,7 +3,7 @@ import favorite from '../../imagen/star.png'
 import No_Favorite from '../../imagen/starNo.png'
 import { useSelector,useDispatch } from "react-redux"
 import { postFavorite,deleteFavorite } from "../../app/middleware/payloadQuestions"
-const QuestionsPrivate = ({question,deleteQuestion}) => { 
+const QuestionsPrivate = ({question,deleteQuestion,isFavorite}) => { 
     
     const state =useSelector(state=>state.auth)
     const dispatch=useDispatch();
@@ -37,7 +37,7 @@ const QuestionsPrivate = ({question,deleteQuestion}) => {
                 <button className="button right" onClick={() => deleteQuestion(question.id)}>DELETE</button>
             )} 
             </div>
-                    {!deleteQuestion&&
+                    {isFavorite&&
                         <div style={{width:40}}>{question?.favorite?<img onClick={()=>eliminarFavorito(question.favorite.id)} className="favorite" src={favorite}/>:<img onClick={()=>agregarFavorito(question.id)} className="favorite" src={No_Favorite}/>}</div> 
                     }  
             </div>

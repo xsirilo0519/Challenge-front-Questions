@@ -46,11 +46,8 @@ const QuestionsReducer = (state=initialState,{type,payload})=>{
             })
                 }
         case actionsTypesQuestions.ADD_FAVORITE:
-            console.log(payload);
             const questionAdd=state.questions.filter(question=>question.id===payload.questionid)
-            console.log(questionAdd);
             const questionModificadaAdd={...questionAdd[0],favorite:payload}
-            console.log(questionModificadaAdd);
             return {
                 ...state,
                 isLoading:false,

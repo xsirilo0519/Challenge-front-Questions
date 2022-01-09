@@ -32,5 +32,9 @@ export const privateNavbar=[
     {
         titulo: 'Profile',
         url:'Profile',
+    },
+    {
+        titulo: 'Favorites',
+        url:'Favorites',
     }
 ];

@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import PublicLayout from './layout/PublicLayout';
 import PrivateLayout from './layout/PrivateLayout';
 import HomePage from './pages/public/HomePage';
+import MyFavorites from './pages/private/MyFavorites';
 import QuestionsPagePrivate from './pages/private/QuestionsPagePrivate';
 import OneQuestionPagePrivate from './pages/private/OneQuestionPagePrivate';
 import OneQuestionPagePublic from './pages/public/OneQuestionPagePublic';
@@ -54,7 +55,7 @@ function App() {
             <Route path="CreateQuestion" element={<CreateQuestion/>}/>
             <Route path="MyQuestions" element={<MyQuestions/>}/>
             <Route path="Profile" element={<Profile/>}/>
-
+            <Route path="Favorites" element={<MyFavorites/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
