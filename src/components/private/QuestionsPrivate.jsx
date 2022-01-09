@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom"
 import favorite from '../../imagen/star.png'
 import No_Favorite from '../../imagen/starNo.png'
+import { useSelector,useDispatch } from "react-redux"
+import { postFavorite,deleteFavorite } from "../../app/middleware/payloadQuestions"
+const QuestionsPrivate = ({question,deleteQuestion}) => { 
+    
+    const state =useSelector(state=>state.auth)
+    const dispatch=useDispatch();
 
-const QuestionsPrivate = ({question,deleteQuestion}) => {  
+    const agregarFavorito=(questionid)=>{
+        const data={
+            "questionid":questionid,
+            "uid":state.user.uid
+        }
+        dispatch(postFavorite(data))
+    
+    }
 
-    const hola=()=>{
-        console.log("hi");
+    const eliminarFavorito=(id)=>{
+        dispatch(deleteFavorite(id))
     }
 
     return(
@@ -25,7 +38,7 @@ const QuestionsPrivate = ({question,deleteQuestion}) => {
             )} 
             </div>
                     {!deleteQuestion&&
-                        <div style={{width:40}}>{question?.favorite?<img onClick={hola} className="favorite" src={favorite}/>:<img onClick={hola} className="favorite" src={No_Favorite}/>}</div> 
+                        <div style={{width:40}}>{question?.favorite?<img onClick={()=>eliminarFavorito(question.favorite.id)} className="favorite" src={favorite}/>:<img onClick={()=>agregarFavorito(question.id)} className="favorite" src={No_Favorite}/>}</div> 
                     }  
             </div>
             
