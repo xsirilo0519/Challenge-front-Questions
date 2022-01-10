@@ -12,7 +12,6 @@ const FormQuestion = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        console.log(state);
         postQuestion(formData,navigate)
       }
 
@@ -25,21 +24,21 @@ const FormQuestion = () => {
                 <input  required name="userId" hidden type="text" defaultValue={state.user.uid} placeholder='Ingresa una pregunta acá'></input>
                 <input  required name="email" hidden type="text" defaultValue={state.user.email} placeholder='Ingresa una pregunta acá'></input>
                 <label className=" font-medium">Type</label>
-                <select required className="" name="type" defaultValue="OPEN">
+                <select required className="" name="type" value="OPEN">
                   <option disabled type="String" defaultValue="" >Type</option>
                   <option type="String" value="OPEN">OPEN (LONG OPEN BOX)</option>
                         <option type="String" value="OPINION">OPINION (SHORT OPEN BOX)</option>
-                        <option type="String" vlaue="WITH_RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
+                        <option type="String" value="WITH_RESULT">WITH RESULT (OPEN BOX WITH LINK)</option>
                         <option type="String" value="WITH_EVIDENCE">WITH EVIDENCE (OPEN BOX WITH VIDEO)</option>
                 </select>
                 <label className=" font-medium">Category</label>
-                <select required name="category"  defaultValue="TECHNOLOGY_AND_COMPUTER"className="">
-                  <option disabled type="String"  value="" >Category</option>
+                <select required name="category"  value="TECHNOLOGY_AND_COMPUTER"className="">
+                  <option disabled type="String"  defaultValue="" >Category</option>
                   <option value="TECHNOLOGY_AND_COMPUTER">TECHNOLOGY AND COMPUTER</option>
-                        <option value="SCIENCES">SCIENCES</option>
-                        <option value="SOFTWARE_DEVELOPMENT">SOFTWARE DEVELOPMENT</option>
-                        <option value="SOCIAL_SCIENCES">SOCIAL SCIENCES</option>
-                        <option value="LANGUAGE">LANGUAGE</option>
+                        <option type="String" value="SCIENCES">SCIENCES</option>
+                        <option type="String" value="SOFTWARE_DEVELOPMENT">SOFTWARE DEVELOPMENT</option>
+                        <option type="String" value="SOCIAL_SCIENCES">SOCIAL SCIENCES</option>
+                        <option type="String" value="LANGUAGE">LANGUAGE</option>
                 </select>
                 <button className="button" type="submit">Enviar</button>
             </form>

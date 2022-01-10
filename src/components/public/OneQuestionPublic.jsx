@@ -4,7 +4,12 @@ const OneQuestionPublic = ({question}) => {
 
     return(
         <div className='question'>
-            <p>{question.category}  - <small>{question.type}</small></p>
+            <div className="card">
+            <div>
+            <h4>{question.question}</h4>
+            <h6>{question.category}  - <small>{question.type}</small></h6>
+            </div>
+            </div>
     
         </div>
     )
