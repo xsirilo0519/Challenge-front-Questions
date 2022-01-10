@@ -49,7 +49,6 @@ function App() {
             <Route path="Question/:id" element={<OneQuestionPagePublic/>}/>
             <Route path="RegisterPage" element={<FormUsuario/>}/>
             <Route path="*" element={<NotFound/>}/>
-
         </Route>
           <Route path="/private" element={<PrivateLayout/>}>
             <Route path="Home" element={<HomePage/>}/>
