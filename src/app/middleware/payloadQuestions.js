@@ -4,13 +4,16 @@ import { myQuestionsLoadSucces, myQuestionsLoading,myQuestionsLoadError, myQuest
 import { loggedAction, loginAction } from "../../actions/AuthorActions";
 import axios from "axios";
 
+const heroku="https://fast-beyond-59207.herokuapp.com";
+const local="http://localhost:8080"
+
 export const loadAllQuestion=()=>(dispatch)=>{
   
     dispatch(questionsLoading())
 
     const options = {
     method: 'GET',
-    url: 'http://localhost:8080/getAll',
+    url: `${heroku}/getAll`,
     headers: {'Content-Type': 'application/json'}
     };
 
@@ -27,7 +30,7 @@ export const loadAllQuestionFavorite=(id)=>(dispatch)=>{
 
   const options = {
   method: 'GET',
-  url: `http://localhost:8080/getAllFavorite/${id}`,
+  url: `${heroku}/getAllFavorite/${id}`,
   headers: {'Content-Type': 'application/json'}
   };
 
@@ -45,7 +48,7 @@ export const loadById=(id)=>(dispatch)=>{
 
     const options = {
         method: 'GET',
-        url: `http://localhost:8080/get/${id}`,
+        url: `${heroku}/get/${id}`,
         headers: {'Content-Type': 'application/json'}
         };
     
@@ -61,7 +64,7 @@ export const postQuestion=(question,navigate)=>{
     console.log(question);
     const options = {
         method: 'POST',
-        url: 'http://localhost:8080/create',
+        url: `${heroku}/create`,
         headers: {'Content-Type': 'application/json'},
         data: question
       };
@@ -75,9 +78,11 @@ export const postQuestion=(question,navigate)=>{
 
 export const postAnswer=(answer)=>(dispatch)=>{
 
+    console.log(answer);
+
     const options = {
         method: 'POST',
-        url: 'http://localhost:8080/add',
+        url: `${heroku}/add`,
         headers: {'Content-Type': 'application/json'},
         data: answer
       };
@@ -92,7 +97,7 @@ export const postAnswer=(answer)=>(dispatch)=>{
 
 export const deleteAnswer=(id)=>(dispatch)=>{
   dispatch(oneQuestionsLoading())
-  const options = {method: 'DELETE', url: `http://localhost:8080/deleteAnswer/${id}`};
+  const options = {method: 'DELETE', url: `${heroku}/deleteAnswer/${id}`};
       axios.request(options).then(function (response) {
           dispatch(oneQuestionsDeleteAnswer(id))
       }).catch(function (error) {
@@ -103,7 +108,7 @@ export const deleteAnswer=(id)=>(dispatch)=>{
 
 export const deleteQuestion=(id)=>(dispatch)=>{
     dispatch(myQuestionsLoading())
-    const options = {method: 'DELETE', url: `http://localhost:8080/delete/${id}`};
+    const options = {method: 'DELETE', url: `${heroku}/delete/${id}`};
         axios.request(options).then(function (response) {
             dispatch(myQuestionsDelete(id))
         }).catch(function (error) {
@@ -118,7 +123,7 @@ export const getUserQuestion=(userId)=>(dispatch)=>{
 
     const options = {
         method: 'GET',
-        url: `http://localhost:8080/getOwnerAll/${userId}`,
+        url: `${heroku}/getOwnerAll/${userId}`,
         headers: {'Content-Type': 'application/json'}
       };
       axios.request(options).then(function (response) {
@@ -132,7 +137,7 @@ export const postUsuario = (user,navigate)=>(dispatch) => {
   console.log("userpost",user);
   const options = {
     method: "POST",
-    url: "http://localhost:8080/createUsuario",
+    url: `${heroku}/createUsuario`,
     headers: { "Content-Type": "application/json" },
     data: user,
   };
@@ -158,7 +163,7 @@ export const postUsuario = (user,navigate)=>(dispatch) => {
 export const getUsuario = (UID) => (dispatch) => {
   const options = {
     method: "GET",
-    url: `http://localhost:8080/getUsuario/${UID}`,
+    url: `${heroku}/getUsuario/${UID}`,
     headers: { "Content-Type": "application/json" },
   };
   axios.request(options).then(response=>{
@@ -181,7 +186,7 @@ export const getUsuario = (UID) => (dispatch) => {
 export const PutUsuario = (user,navigate) => (dispatch) => {
   const options = {
     method: "PUT",
-    url: `http://localhost:8080/actualizarUsuario`,
+    url: `${heroku}/actualizarUsuario`,
     headers: { "Content-Type": "application/json" },
     data: user,
   };
@@ -208,7 +213,7 @@ export const postFavorite=(favorite)=>(dispatch)=>{
   dispatch(questionsLoading())
   const options = {
       method: 'POST',
-      url: 'http://localhost:8080/createFavorite',
+      url: `${heroku}/createFavorite`,
       headers: {'Content-Type': 'application/json'},
       data: favorite
     };
@@ -221,7 +226,7 @@ export const postFavorite=(favorite)=>(dispatch)=>{
 
 export const deleteFavorite=(id)=>(dispatch)=>{
   dispatch(questionsLoading())
-  const options = {method: 'DELETE', url: `http://localhost:8080/deleteFavorite/${id}`};
+  const options = {method: 'DELETE', url: `${heroku}/deleteFavorite/${id}`};
       axios.request(options).then(function (response) {
           dispatch(questionsDeleteFavorite(id))
       }).catch(function (error) {
@@ -235,7 +240,7 @@ export const getFavoriteUserQuestion=(userId)=>(dispatch)=>{
 
   const options = {
       method: 'GET',
-      url: `http://localhost:8080/getFavorites/${userId}`,
+      url: `${heroku}/getFavorites/${userId}`,
       headers: {'Content-Type': 'application/json'}
     };
     axios.request(options).then(function (response) {

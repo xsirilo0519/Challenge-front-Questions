@@ -32,7 +32,7 @@ const FormProfile = () => {
                 <label>Cambiar nombre</label>
                 <input type="text" name="nombre"  defaultValue={state.user.name} placeholder='Ingrese su nombre'></input>
                 <input type="text"name="apellido" defaultValue={state.user.apellido} placeholder='Ingrese su apellido'></input>
-                <input type="text"name="email" defaultValue={state.user.email} readOnly></input>
+                <input type="text"name="email"  value={state.user.email} readOnly></input>
                 <button className='button' type="submit">Actualizar</button>
             </form>
         </section>
