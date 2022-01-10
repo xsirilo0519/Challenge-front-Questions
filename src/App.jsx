@@ -9,6 +9,7 @@ import PublicLayout from './layout/PublicLayout';
 import PrivateLayout from './layout/PrivateLayout';
 import HomePage from './pages/public/HomePage';
 import MyFavorites from './pages/private/MyFavorites';
+import NotFound from './components/NotFound';
 import QuestionsPagePrivate from './pages/private/QuestionsPagePrivate';
 import OneQuestionPagePrivate from './pages/private/OneQuestionPagePrivate';
 import OneQuestionPagePublic from './pages/public/OneQuestionPagePublic';
@@ -47,6 +48,8 @@ function App() {
             <Route path="/QuestionsPage" element={<QuestionsPagePublic/>}/>
             <Route path="Question/:id" element={<OneQuestionPagePublic/>}/>
             <Route path="RegisterPage" element={<FormUsuario/>}/>
+            <Route path="*" element={<NotFound/>}/>
+
         </Route>
           <Route path="/private" element={<PrivateLayout/>}>
             <Route path="Home" element={<HomePage/>}/>
@@ -56,6 +59,7 @@ function App() {
             <Route path="MyQuestions" element={<MyQuestions/>}/>
             <Route path="Profile" element={<Profile/>}/>
             <Route path="Favorites" element={<MyFavorites/>}/>
+            <Route path="*" element={<NotFound/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
